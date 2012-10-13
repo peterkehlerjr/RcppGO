@@ -1,0 +1,13 @@
+Package: RcppGO
+Type: Package
+Title:   Global optimization using a stochastic algorithm written in C++
+Version: 0.1
+Date: 2012-02-11
+Author: Peter Kehler
+Maintainer: Peter Kehler <peter.kehler.jr@googlemail.com>
+Description: RcppGO is a C++ implementation of an stochastic global optimization algorithm using the laws of gravity and motion.
+License: LGPLv3 
+Depends: Rcpp (>= 0.9.11), RcppArmadillo (>= 0.3.2.0)
+LinkingTo: Rcpp
+Repository: CRAN/R-Forge
+Date/Publication: 2012-03-10 13:25:00
