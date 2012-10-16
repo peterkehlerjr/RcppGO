@@ -32,20 +32,33 @@
       <section>
         <h3>What is RcppGO?</h3>
 
-<p>RcppGO is a optimization package for R written in C++. It can be used to solve unconstrained classic or stochastic optimization problems. </p>
+<p><strong>RcppGO</strong> is a optimization package for <strong>R</strong> written in <strong>C++</strong> aiming at "difficult" optimization problems. <strong>[...], optimization algorithms are guided by objective functions. A function is difficult from a mathematical perspective in this context if it is not continuous, not differentiable, or if it has multiple maxima and minima.</strong> <em>(Weise, T., (2009). Global Optimization Algorithms – Theory and Application. P.56)</em> </p>
+
+<p>The <strong>RcppGO</strong> algorithm is loosely based on <em>Kaveh, A. and Talatahari, (2010). A Novel Heuristic Optimization Method: Charged System Search. Acta Mechanica, 213(3-4):267–289.</em></p>
 
 <h3>What are the key features?</h3>
 
-<p>RcppGO </p>
+<p><strong>RcppGO</strong> </p>
 
 <ul>
-<li>is fast due to its implementation in C++</li>
-<li>is easy to use</li>
-<li>requires little knowledge about programming</li>
-<li>is robust</li>
+<li>is fast due to the implementation in <strong>C++</strong>,</li>
+<li>is easy to use within <strong>R</strong>,</li>
+<li>applicable to difficult objective functions.</li>
+</ul><h3>Advantages</h3>
+
+<p><strong>RcppGO</strong> can be used to solve objective functions meeting the following criteria. The objective function</p>
+
+<ul>
+<li>is non-continuous, </li>
+<li>has prohibited zones,</li>
+<li>has side-limits,</li>
+<li>is non-smooth,</li>
+<li>is non-convex.<br>
+</li>
+<li>The algorithm doesn't require you to provide a good starting point. </li>
 </ul><h3>Disadvantages</h3>
 
-<p>Due to its concept as an stochastic optimization algorithm, the results are also stochastic. Classic optimization problems will converge faster using classic optimization algorithms. </p>
+<p>Due to its stochastic approach, the results of the algorithm are also stochastic. Continuous optimization problems will converge faster and most likely produce results with higher accuracy using gradient-based methods. </p>
 
 <h3>How do I try it</h3>
 
@@ -82,9 +95,8 @@ export PKG_LIBS="-larmadillo -llapack  ${RCPP_LIBS}"
 <pre><code>R CMD INSTALL RcppGO
 </code></pre>
 </li>
-<li>
-<p>Use RcppGO 
-Load the package in R via</p>
+<li><p>Use RcppGO </p></li>
+</ol><p>Load the package in R via</p>
 
 <pre><code>library(RcppGO)
 </code></pre>
@@ -93,8 +105,8 @@ Load the package in R via</p>
 
 <pre><code>help("RcppGO")
 </code></pre>
-</li>
-</ol><h3>Supported OS</h3>
+
+<h3>Supported OS</h3>
 
 <ul>
 <li>Linux</li>
@@ -102,7 +114,7 @@ Load the package in R via</p>
 <li>Windows (not tested)</li>
 </ul><h3>Current status</h3>
 
-<p>As of Oct 2012 the project is at version 0.1. Updates will follow irregularly.</p>
+<p>As of Oct 2012 the project is at version 0.1. </p>
 
 <h3>Author</h3>
 
