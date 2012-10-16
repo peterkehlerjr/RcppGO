@@ -62,49 +62,7 @@
 
 <h3>How do I try it</h3>
 
-<ol>
-<li>
-<p>Install the required R packages. Within R type</p>
-
-<pre><code>install.packages("Rcpp", "RcppArmadillo", "RcppDE")
-</code></pre>
-</li>
-<li>
-<p>Define external library flags in your terminal </p>
-
-<pre><code>Rcpp_CXXFLAGS=`Rscript -e 'Rcpp:::CxxFlags()'`
-RCPP_LIBS=`Rscript -e 'Rcpp:::LdFlags()'`
-RCPP_ARMADILLO=`Rscript -e 'RcppArmadillo:::CxxFlags()'`
-</code></pre>
-
-<p>and export them </p>
-
-<pre><code>export PKG_CPPFLAGS="${RCPP_ARMADILLO} ${RCPP_CXXFLAGS}"
-export PKG_LIBS="-larmadillo -llapack  ${RCPP_LIBS}"
-</code></pre>
-</li>
-<li>
-<p>Move to the directory where RcppGO is located</p>
-
-<pre><code>cd /path_to_RcppGO/
-</code></pre>
-</li>
-<li>
-<p>Compile the package with R</p>
-
-<pre><code>R CMD INSTALL RcppGO
-</code></pre>
-</li>
-<li><p>Use RcppGO </p></li>
-</ol><p>Load the package in R via</p>
-
-<pre><code>library(RcppGO)
-</code></pre>
-
-<p>and open the help pages</p>
-
-<pre><code>help("RcppGO")
-</code></pre>
+<p>Download the <strong>RcppGO</strong> package from this site and follow the included installation instructions.</p>
 
 <h3>Supported OS</h3>
 
