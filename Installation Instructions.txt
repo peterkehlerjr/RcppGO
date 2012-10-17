@@ -1,36 +1,20 @@
 Installation Instructions
 *************************
 
-These are generic installation instructions. 
+These are basic installation instructions assuming you have administrator rights.
 
-In order to install the package 'RcppGO' properly, 
-it is necessary to expose the path to the 'RcppArmadillo' package
-and make R aware of other libs to be used.
+As of version 0.1 the following OS are supported:
+- OS X,
+- Linux,
+- Windows has not yet been tested.
 
-Without further comments on e.g. OS X (adjust to your os) you should enter this in the terminal:
+In order to install the package 'RcppGO', 
+copy the "install_RcppGO.sh" file to the parent directory of RcppGO
+and run it in your terminal. 
 
-#
-RCPP_CXXFLAGS=`Rscript -e 'Rcpp:::CxxFlags()'`
-RCPP_LIBS=`Rscript -e 'Rcpp:::LdFlags()'`
+You might have to run
+chmod +x install_RcppGO.sh
+in your terminal.i
 
-export PKG_CPPFLAGS="-I/home/pkehler/R/x86_64-pc-linux-gnu-library/2.15/RcppArmadillo/include ${RCPP_CXXFLAGS}"
-export PKG_LIBS="-larmadillo -llapack  ${RCPP_LIBS}"
-
-
-R CMD INSTALL RcppGO*
-
-If no errors occurred you should read a message similiar to this:
-
-** R
-** preparing package for lazy loading
-** help
-*** installing help indices
-** building package indices ...
-** testing if installed package can be loaded
-*** arch - i386
-*** arch - x86_64
-
-* DONE (RcppGO)
-
-
-Now the package is installed and ready for use.
+You can get support and report bugs under:
+peter.kehler.jr@googlemail.com
