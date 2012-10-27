@@ -4,6 +4,8 @@
 ABSPATH=$(cd "$(dirname "$0")"; pwd)
 cd $ABSPATH
 
+cd ..
+ 
 FILENAME=RcppGO
 
 # export librarys to PATH

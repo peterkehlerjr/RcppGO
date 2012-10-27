@@ -12,3 +12,7 @@ AluffiPentiny <- function(X)
 
 RcppGOMean/DEMean
 (RcppGOMean/DEMean)^-1
+
+
+
+mean(replicate(100,system.time(optim(par=0, fn=AluffiPentiny, lower=-10, upper=10, method="L-BFGS-B"))))
