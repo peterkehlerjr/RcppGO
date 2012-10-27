@@ -15,4 +15,8 @@
 
 *.so
 
+.git
+
 tests/.Rhistory
+
+.gitignore
