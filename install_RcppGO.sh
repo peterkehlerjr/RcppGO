@@ -1,5 +1,9 @@
 #!/bin/bash  
 
+# In order to execute the script, the user may have to change the mode 
+# of the script. This can be done in shell via
+# chmod +x install_RcppGO.sh
+
 ## find directory of file
 ABSPATH=$(cd "$(dirname "$0")"; pwd)
 cd $ABSPATH
