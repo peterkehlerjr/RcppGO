@@ -31,7 +31,7 @@ Download the **RcppGO** package from this site and follow the included installat
 * Windows (not tested)
 
 ### Current status
-As of Oct 2012 the project is at version 0.1. 
+As of June 2013 the project is at version 1.0 
 
 ### Author
 Peter Kehler Jr
