@@ -1,0 +1,20 @@
+﻿Installation Instructions
+*************************
+
+These are basic installation instructions assuming you have administrator rights.
+
+As of version 0.1 the following OS are supported:
+- OS X,
+- Linux,
+- Windows has not yet been tested.
+
+In order to install the package 'RcppGO', 
+run "install_RcppGO.sh" in your terminal via
+./install_RcppGO.sh 
+
+You might have to run
+chmod +x install_RcppGO.sh
+in your terminal, before you are able to execute the script.
+
+You can get support and report bugs under:
+peter.kehler.jr@googlemail.com

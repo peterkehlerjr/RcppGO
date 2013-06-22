@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# remove object files and libraries
+rm -f src/*.o src/*.so 
+
+# remove emacs backup files
+#find . -name \*~ -exec rm {} \;
+rm `find ./ -name '*~'` -rf 
+
+# remove apples .DS_Store files
+rm `find ./ -name '.DS_Store'` -rf 
+
+# remove unnecessary latex files
+# remark: in the future this may be done by a makefile 
+cd inst/doc && rm -f *.aux *.log *.bbl *.blg *.out *.tex && rm -rf auto/
