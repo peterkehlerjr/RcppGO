@@ -1,4 +1,4 @@
-#include "RcppGO.hpp"
+#include "RcppGO.h"
 
 /* === RcppGO ===
  * @title:  RcppGO

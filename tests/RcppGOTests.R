@@ -10,7 +10,7 @@ f <- function(X)
 
 Test00 <- RcppGO(ObjectiveFunction=f, Args=2, Lower= -10, Upper= 10)
 Test00$GMemory
-# RcppGO.Plot(RcppGO.Data=Test00)
+# #plot.RcppGO(x=Test00)
 
 #--------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ AluffiPentiny <- function(X)
 Test01 <- RcppGO(ObjectiveFunction=AluffiPentiny, Args=2, Lower = -10, Upper = 10, User=FALSE, Scale=0.1)
 Test01$GMemory
 
-RcppGO.Plot(RcppGO.Data = Test01, Particle_Sim = FALSE)
+##plot.RcppGO(x = Test01, Particle_Sim = FALSE)
 
 # --------------------------------------------------------------------------------
 # min at 0.0, X in [-100,100]^2
@@ -35,7 +35,7 @@ Bohachevsky01 <- function(X)
 Test02 <- RcppGO(ObjectiveFunction= Bohachevsky01,  Args=2, Lower = -100, Upper = 100)
 Test02$GMemory
 
-RcppGO.Plot(RcppGO.Data = Test02, Particle_Sim = FALSE)	
+#plot.RcppGO(x = Test02, Particle_Sim = FALSE)	
 # --------------------------------------------------------------------------------
 # min at 	0.0, X in [-50,50]^2
 Bohachevsky02 <- function(X)
@@ -45,7 +45,7 @@ Bohachevsky02 <- function(X)
 Test03 <- RcppGO(ObjectiveFunction= Bohachevsky02, Args=2, Lower = -50, Upper = 50)
 Test03$GMemory
 
-RcppGO.Plot(RcppGO.Data = Test03, Particle_Sim = FALSE)
+#plot.RcppGO(x = Test03, Particle_Sim = FALSE)
 # --------------------------------------------------------------------------------
 # min at 	0.0, X in [-10,10]^2
 BeckerAndLago <- function(X)
@@ -55,7 +55,7 @@ BeckerAndLago <- function(X)
 Test04 <- RcppGO(ObjectiveFunction=BeckerAndLago, Args=2, Lower = -10, Upper = 10)
 Test04$GMemory
 
-RcppGO.Plot(RcppGO.Data = Test04, Particle_Sim = FALSE)
+#plot.RcppGO(x = Test04, Particle_Sim = FALSE)
 # --------------------------------------------------------------------------------
 # min at 	0.397887, X[,1] in [-5,10], X[,2] in [0,15]
 Branin <- function(X)
@@ -65,7 +65,7 @@ Branin <- function(X)
 Test05 <- RcppGO(ObjectiveFunction=Branin, Args=2, Lower = -10, Upper = 10, User=FALSE, Scale=0.01)
 Test05$GMemory
 
-RcppGO.Plot(RcppGO.Data = Test05, Particle_Sim = FALSE)
+#plot.RcppGO(x = Test05, Particle_Sim = FALSE)
 # --------------------------------------------------------------------------------
 # min at 	-1.0316, X in [-5,5]^2
 Camel <- function(X)
@@ -75,7 +75,7 @@ Camel <- function(X)
 Test06 <- RcppGO(ObjectiveFunction=Camel,  Args=2, Lower = -5, Upper = 5, Maximize=FALSE)
 Test06$GMemory
 
-RcppGO.Plot(RcppGO.Data = Test06, Particle_Sim = FALSE)
+#plot.RcppGO(x = Test06, Particle_Sim = FALSE)
 # --------------------------------------------------------------------------------
 # min at 0.4, X in [-1,1]^4
 Cosine.mixture <- function(X)
@@ -130,5 +130,5 @@ Rosenbrock <- function(X)
 Test12 <- RcppGO(ObjectiveFunction= Rosenbrock, Args=2, Lower = -30, Upper = 30)
 Test12$GMemory
 
-RcppGO.Plot(RcppGO.Data = Test12, Particle_Sim = FALSE)
+#plot.RcppGO(x = Test12, Particle_Sim = FALSE)
 

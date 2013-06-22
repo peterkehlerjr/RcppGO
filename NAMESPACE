@@ -1,2 +1,4 @@
 useDynLib(RcppGO)
-exportPattern("^[[:alpha:]]+")
+export(RcppGO, RcppGO.Plot.Wrapper, circles, sanity.check)
+S3method("plot", "RcppGO")
+
