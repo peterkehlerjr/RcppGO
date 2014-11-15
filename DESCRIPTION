@@ -9,6 +9,6 @@ Description: RcppGO is a C++ implementation of a stochastic global optimization 
 License: GPL (>= 2)
 Depends: Rcpp (>= 0.10.3), RcppArmadillo (>= 0.3.900.0), lattice (>= 0.20)
 Suggests: RcppDE, DEoptim, rbenchmark
-LinkingTo: Rcpp
+LinkingTo: Rcpp, RcppArmadillo
 Repository: CRAN
 Date/Publication: 2013-02-19 13:25:14
