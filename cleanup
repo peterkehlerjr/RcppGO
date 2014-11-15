@@ -11,5 +11,8 @@ rm `find ./ -name '*~'` -rf
 rm `find ./ -name '.DS_Store'` -rf 
 
 # remove unnecessary latex files
+# remove apples .DS_Store files
+rm `find ./ -name '.Rhistory'` -rf 
+
 # remark: in the future this may be done by a makefile 
 cd inst/doc && rm -f *.aux *.log *.bbl *.blg *.out *.tex && rm -rf auto/

@@ -17,6 +17,7 @@ RcppGO.Plot.Wrapper <- function(fn)
   return(eval(parse(text=fnString)))
 }
 
+
 ##' \description{This function plots circles of length(x) into a two-dimensional space.}
 ##' @title circles
 ##' @param x Defines the x coordinate of the circle.
@@ -88,7 +89,7 @@ sanity.check <- function(input, symbol, default.type=NULL, default.value=NULL, t
 ##' @title plot.RcppGO
 ##' @param x Data that is returned by the 'RcppGO' function.
 ##' @param ... Included to comply with the generic plot function arguments. 
-##' @param plot.type The plot type can be either 'static' or 'dynamic'.
+##' @param plot.type The plot type can be either 'contour', 'performance', 'wireframe' or 'dynamic'.
 ##' @param delay The delay between the plot updates.
 ##' @param bestsolution Indicator of the overall best found solution.
 ##' @param nextposition The position of a particle in t+1.
@@ -99,7 +100,7 @@ sanity.check <- function(input, symbol, default.type=NULL, default.value=NULL, t
 ##' @author Peter Kehler
 plot.RcppGO <- function(x,  
                         ...,
-                        plot.type=c("static", "dynamic"),
+                        plot.type=c("contour", "wireframe", "performance", "dynamic"),
                         delay=0.3,  
                         bestsolution=TRUE,
                         nextposition=FALSE,
@@ -109,7 +110,14 @@ plot.RcppGO <- function(x,
                         )
   {
     options(warn = -1)
+    
+    # check plot.type
+    if (plot.type %in% c("contour", "wireframe", "performance", "dynamic") == FALSE)
+      {
+        stop("plot.type: \"",plot.type ,"\" is unknown.\n Choose 'contour', 'wireframe', 'performance'or 'dynamic'.")
+      }
 
+    # create variables
     GP <- x$GravityParticles
     GM <- x$GMemory
     Args <- x$Args
@@ -212,8 +220,8 @@ plot.RcppGO <- function(x,
           }
       }
     
-    # static plot
-    if (plot.type=="static")
+    # wireframe
+    if (plot.type=="wireframe")
       {
         Wireframe <- wireframe(x03,
                                shade=FALSE,
@@ -233,7 +241,12 @@ plot.RcppGO <- function(x,
                                  y=list(at=seq(1,50,length.out=11),labels=round(seq(Lower,Upper,length.out=11),1))
                                  )
                                )
-        
+        print(Wireframe)
+      }
+    
+    # contour plot
+    if (plot.type=="contour")
+      {
         Contour <- contourplot(x03,
                                col="blue",
                                xlab=expression(x[1]),
@@ -245,13 +258,62 @@ plot.RcppGO <- function(x,
                                scales = list(
                                  x=list(at=seq(1,50,length.out=11),labels=round(seq(Lower,Upper,length.out=11),1)),
                                  y=list(at=seq(1,50,length.out=11),labels=round(seq(Lower,Upper,length.out=11),1))
-                                 )
+                                 ),
+                               add=TRUE
                                )
-        
-        print(Wireframe,position=c(0.1,0.1,1,1),split=c(1,1,2,1),more=TRUE)
-        print(Contour,position=c(0.1,0.1,1,1),split=c(2,1,2,1),more=FALSE)
+        print(Contour)
       }
-    
+
+
+    if (plot.type=="performance")
+      {
+        # determine position, where GMemory[1,"fn_x"] == GravityParticles[1,"fn_x", ] for the first time
+
+        y.values <- rep(NA, length=Iterations)
+        y.values[1] <- GP[1,"fn_x",1]
+        
+        for (i in 2:Iterations)
+          {
+            if (Maximize == TRUE)
+              {
+                if(GP[1,"fn_x",i] >= y.values[i-1])
+                  {
+                    y.values[i] <- GP[1,"fn_x",i]
+                  }
+                else
+                  {
+                    y.values[i] <- y.values[i-1]
+                  }
+              }
+            
+            if (Maximize == FALSE)
+              {
+                if(GP[1,"fn_x",i] <= y.values[i-1])
+                  {
+                    y.values[i] <- GP[1,"fn_x",i]
+                  }
+                else
+                  {
+                    y.values[i] <- y.values[i-1]
+                  }
+              }
+          }
+
+        if(any(is.na(y.values))) stop("An error occurred: Values with 'NA'.\n")
+        
+        # for now the plot allows only one series
+        plot(x= seq(1:Iterations),
+             y= y.values,
+             xlim= c(1,Iterations),
+             ylim= c(min(y.values), max(y.values)),
+             main= "performance plot",
+             xlab= "iteration",
+             ylab= "best solution",
+             type="l",
+             col="blue",
+             lwd=2
+             )
+      }
     
     options(warn = 0)
     

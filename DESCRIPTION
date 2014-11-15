@@ -7,7 +7,7 @@ Author: Peter Kehler
 Maintainer: Peter Kehler <peter.kehler.jr@googlemail.com>
 Description: RcppGO is a C++ implementation of a stochastic global optimization algorithm using the laws of gravity and motion.
 License: GPL (>= 2)
-Depends: Rcpp (>= 0.9.11), RcppArmadillo (>= 0.3.2.0), lattice (>= 0.20)
+Depends: Rcpp (>= 0.10.3), RcppArmadillo (>= 0.3.900.0), lattice (>= 0.20)
 Suggests: RcppDE, DEoptim, rbenchmark
 LinkingTo: Rcpp
 Repository: CRAN
