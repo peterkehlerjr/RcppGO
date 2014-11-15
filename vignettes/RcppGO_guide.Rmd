@@ -1,0 +1,64 @@
+---
+title: "RcppGO guide"
+author: "Peter Kehler"
+date: "15 November 2014"
+output:
+  pdf_document:
+    fig_caption: yes
+    highlight: tango
+    number_sections: yes
+    toc: yes
+bibliography: RcppGO.bib
+---
+
+# Introduction
+Different kinds of optimization problems require a dedicated algorithm. "[...],
+optimization algorithms are guided by objective functions. A function is
+difficult from a mathematical perspective in this context if it is not
+continuous, not differentiable, or if it has multiple maxima and
+minima."[@Weise:2009, p. 56]
+
+This is a natural field of application for heuristic optimization
+algorithms. Figure [id] shows a classification approach metaheuristics. Many algorithms are inspired by nature. So is the \emph{Charged System Search} or \emph{CSS} described in [@Kaveh:2010b]. The \emph{CSS} is inspired by the Newtonian laws of mechanics and the Coulomb law from electrostatics. The authors demonstrated its performance using standard  benchmark problems as well as engineering design problems, showing that \emph{CSS} outperforms other established evolutionary optimization algorithms. Since its first publication the algorithm has been enhanced and successfully applied to many problems. The literature considering the \emph{CSS} algorithm can be devided into its application and further development.
+
+In [@Kaveh:2010a] the authors developed a discrete version of the \emph{CSS} algorithm and a constrained 
+optimization approach was added.Further enhancements were made in [@Kaveh:2010c] by utilizing the \emph{fields of forces} method resulting in an \emph{enhanced CSS} outperforming the original algorithm. To increase the global search mobility of the \emph{CSS} algorithm the authors introduce several chaos based methods in [@Kaveh:2011a] and named the version \emph{chaos-based CSS} or \emph{CCSS}. 
+
+As engineers by profession, the authors apply the \emph{CSS} variants to several engineering problems including
+the optimum design of geodesic domes taking their nonlinear respones account in [@Kaveh:2010d] or the optimal 
+design of sceletal structures in [@Kaveh:2010e].
+
+The purpose of the \texttt{RcppGO}
+package is to provide an algorithm to tackle difficult otimization
+problems as defined before. The algorithm utilizes Newton's laws of gravity and
+motion and is loosely based on [@Kaveh:2010b]. In the interest of brevity
+the user guide provides only the steps to get startet with the package. A
+detailed article on the algorithm is in preparation.  
+
+The remainder of the user guide is organized as follows: Section \ref{sec:installation} describes how
+to install the \texttt{RcppGO} package. Section \ref{sec:examples} presents two
+examples of application and goes into the differences for uni- and
+multidimensional optimization problems.
+
+![A classification of metaheuristic optimization algorithms [@Dreo:2011].](figure/Metaheuristics_classification.pdf).
+
+
+
+# Installation
+**RcppGO** is hosted at [https://github.com/peterkehlerjr/RcppGO](https://github.com/peterkehlerjr/RcppGO). 
+Installation is done via:
+```{r install, cache=TRUE, eval=FALSE,echo=TRUE}
+install.packages("devtools")
+library(devtools)
+install_github('peterkehlerjr/RcppGO')
+```
+
+
+
+
+# Session Info
+```{r sessionInfo, include=TRUE, echo=FALSE, results='markup', cache=TRUE}
+sessionInfo()
+```
+# References
+
