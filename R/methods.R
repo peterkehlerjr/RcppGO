@@ -10,9 +10,18 @@ RcppGO.Plot.Wrapper <- function(fn)
   fnString <- gsub(" ","",fnString,fixed=TRUE)
   fnString <- paste(fnString,sep="",collapse="")
   
-  fnString <- gsub("(X)","(x,y)",fnString,fixed=TRUE)
-  fnString <- gsub("X[,1]","x",fnString,fixed=TRUE)
-  fnString <- gsub("X[,2]","y",fnString,fixed=TRUE)
+  if (Args == 2)
+  {
+    fnString <- gsub("(X)","(x,y)",fnString,fixed=TRUE)
+    fnString <- gsub("X[,1]","x",fnString,fixed=TRUE)
+    fnString <- gsub("X[,2]","y",fnString,fixed=TRUE)
+  }
+  
+  if (Args == 1)
+  {
+    fnString <- gsub("(X)","(x)",fnString,fixed=TRUE)
+    fnString <- gsub("X[,1]","x",fnString,fixed=TRUE)
+  }
   
   return(eval(parse(text=fnString)))
 }
