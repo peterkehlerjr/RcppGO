@@ -141,7 +141,7 @@ plot.RcppGO <- function(x,
     if (Args > 2) stop("Attention: Args > 2.")
     
     # function-wrapper
-    fn <- RcppGO.Plot.Wrapper(x$ObjectiveFunction, Args)
+    fn <- RcppGO.Plot.Wrapper(fn=x$ObjectiveFunction, Args=Args)
     
     # check binary variables
     sanity.check(input=bestsolution,default.type="logical")
@@ -164,16 +164,14 @@ plot.RcppGO <- function(x,
           }
       }
 
-    x01 <- seq(Lower,Upper,length.out=50)
-    x02 <- seq(Lower,Upper,length.out=50)
-    x03 <- outer(x01,x02,fn)
-
     if (Args == 1)
     {
-      plot(fn, xlim=c(Lower, Upper))
+      plot(x = fn, xlim=c(Lower, Upper))
     } else 
     {
-    
+      x01 <- seq(Lower,Upper,length.out=50)
+      x02 <- seq(Lower,Upper,length.out=50)
+      x03 <- outer(x01,x02,fn)
     # dynamic plot
     if (plot.type=="dynamic")
       {
