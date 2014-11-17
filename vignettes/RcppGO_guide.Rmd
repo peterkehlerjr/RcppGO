@@ -3,12 +3,12 @@ title: "RcppGO User Guide"
 author: "Peter Kehler"
 date: "17 nov 2014"
 output:
-  html_document:
-    toc: yes
   pdf_document:
     fig_caption: yes
     highlight: tango
     number_sections: yes
+    toc: yes
+  html_document:
     toc: yes
 bibliography: RcppGO.bib
 ---
@@ -20,7 +20,7 @@ _RcppGO_ is a package designed for optimization problems. The code was originall
 # Installation
 **RcppGO** is hosted at [https://github.com/peterkehlerjr/RcppGO](https://github.com/peterkehlerjr/RcppGO). The installation via _github_ requires the package _devtools_ [@Wickham:2014]. 
 Assuming _devtools_ is not present in your library, the installation is done via:
-```{r install, cache=TRUE, eval=FALSE,echo=TRUE}
+```{r install, eval=FALSE,echo=TRUE}
 install.packages("devtools")
 library(devtools)
 install_github('peterkehlerjr/RcppGO')
@@ -29,30 +29,59 @@ install_github('peterkehlerjr/RcppGO')
 # Examples
 After installing the required packages, they have to be loaded into _R_. 
 
-```{r loading, cache=TRUE, echo=FALSE}
+```{r loading, echo=FALSE}
 library(RcppGO)
 ```
-Now we can start to play around. 
+Now we can start to play around with the package. Before going into detail, I will present two examples how to use its functionality.
 
 ## Example 1
-Let's have a look at our first example, defined by the following objective function:
-$$f(x) = -x^2$$
+Let's have a look at our first example. Say, we have a cost function defined by the following objective function:
+$$f(x) = (x-2)^2 + 3, x \in  \mathbf{N}_{+} ,  x  \geqq 1 $$
+We assume the constraints that $x$ is greater equal 1 and discrete positive. The objective is to find the minimum costs given a quantity of our product. 
 
 
-```{r example01, cache=TRUE}
+Defining the objective function in _R_ is straight forward. We will call it _Fun01_.
+```{r example01}
 Fun01 <- function(X)
   {
-  -X^2
+   (X-3)^2 + 4
   }
+```
 
-Example01 <- RcppGO(ObjectiveFunction = Fun01, Args = 1, Lower = -10, Upper = 10, n = 20, g = 20, Maximize = TRUE)
+Let's look at a plot of _Fun01_:
 
+```{r, echo=TRUE}
+plot(Fun01, xlim=c(1,6), ylim = c(0,15),ylab = "cost function")
+points(x = 3, y = 4, lwd=2, col="red")
+```
+
+
+Now let us 
+```{r}
+Example01 <- RcppGO(ObjectiveFunction = Fun01, 
+                    Args = 1, 
+                    Lower = -10, 
+                    Upper = 10
+                    )
+```
+
+
+
+```{r}
 str(Example01)
+```
 
+
+
+```{r}
 Example01$GMemory
+```
 
+
+```{r}
 plot(x=Example01, xlim = c(-10,10), bestsolution = TRUE)
 ```
+
 
 ## Example 2
  to bit more complicated objective function.
@@ -61,20 +90,18 @@ $$f(x,y)=\frac{1}{4} x^4 - \frac{1}{2} x^2 + \frac{1}{10}x + \frac{1}{2}y^2$$
 ![AluffiPentiny](/Users/peterkehler/Dropbox/technology/github/RcppGO/vignettes/figure/AluffiPentiny01.png)
 Let's look for the minimum of the function. 
 
-```{r AluffyPlot, echo=FALSE}
-# nothing
-```
 
-
-
-
-```{r, cache=TRUE}
+```{r,tidy=TRUE, }
 # defining a benchmark function
 # min at -0.352386, X in [-10,10]^2
 AluffiPentiny <- function(X)
   {
     1/4*X[,1]^4 - 1/2*X[,1]^2 + 1/10*X[,1] + 1/2*X[,2]^2
   }
+```
+
+
+```{r}
 
 # call and save the optimization process in 'demo01''
 demo01 <- RcppGO(ObjectiveFunction=AluffiPentiny,
@@ -88,7 +115,8 @@ demo01 <- RcppGO(ObjectiveFunction=AluffiPentiny,
 demo01$GMemory
 ```
 
-```{r, eval=FALSE}
+
+```{r}
 plot(x=demo01, plot.type = "wireframe", bestsolution = TRUE)
 ```
 
@@ -99,7 +127,7 @@ plot(x=demo01, plot.type = "wireframe", bestsolution = TRUE)
 # The RcppGO function
 ## Parameters
 
-# The RcppGO.plot method
+# The plot.RcppGO method
 ## Parameters
 
 # Session Info

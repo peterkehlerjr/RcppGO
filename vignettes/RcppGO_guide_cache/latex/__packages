@@ -1,5 +1,10 @@
 base
-devtools
+methods
+datasets
+utils
+grDevices
+graphics
+stats
 Rcpp
 RcppArmadillo
 lattice
