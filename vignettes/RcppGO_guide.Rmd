@@ -1,63 +1,84 @@
 ---
-title: "RcppGO guide"
+title: "RcppGO User Guide"
 author: "Peter Kehler"
-date: "15 November 2014"
-output:
+date: "17 nov 2014"
+output: 
   pdf_document:
     fig_caption: yes
     highlight: tango
     number_sections: yes
     toc: yes
+    
 bibliography: RcppGO.bib
 ---
 
 # Introduction
-Different kinds of optimization problems require a dedicated algorithm. "[...],
-optimization algorithms are guided by objective functions. A function is
-difficult from a mathematical perspective in this context if it is not
-continuous, not differentiable, or if it has multiple maxima and
-minima."[@Weise:2009, p. 56]
-
-This is a natural field of application for heuristic optimization
-algorithms. Figure [id] shows a classification approach metaheuristics. Many algorithms are inspired by nature. So is the \emph{Charged System Search} or \emph{CSS} described in [@Kaveh:2010b]. The \emph{CSS} is inspired by the Newtonian laws of mechanics and the Coulomb law from electrostatics. The authors demonstrated its performance using standard  benchmark problems as well as engineering design problems, showing that \emph{CSS} outperforms other established evolutionary optimization algorithms. Since its first publication the algorithm has been enhanced and successfully applied to many problems. The literature considering the \emph{CSS} algorithm can be devided into its application and further development.
-
-In [@Kaveh:2010a] the authors developed a discrete version of the \emph{CSS} algorithm and a constrained 
-optimization approach was added.Further enhancements were made in [@Kaveh:2010c] by utilizing the \emph{fields of forces} method resulting in an \emph{enhanced CSS} outperforming the original algorithm. To increase the global search mobility of the \emph{CSS} algorithm the authors introduce several chaos based methods in [@Kaveh:2011a] and named the version \emph{chaos-based CSS} or \emph{CCSS}. 
-
-As engineers by profession, the authors apply the \emph{CSS} variants to several engineering problems including
-the optimum design of geodesic domes taking their nonlinear respones account in [@Kaveh:2010d] or the optimal 
-design of sceletal structures in [@Kaveh:2010e].
-
-The purpose of the \texttt{RcppGO}
-package is to provide an algorithm to tackle difficult otimization
-problems as defined before. The algorithm utilizes Newton's laws of gravity and
-motion and is loosely based on [@Kaveh:2010b]. In the interest of brevity
-the user guide provides only the steps to get startet with the package. A
-detailed article on the algorithm is in preparation.  
-
-The remainder of the user guide is organized as follows: Section \ref{sec:installation} describes how
-to install the \texttt{RcppGO} package. Section \ref{sec:examples} presents two
-examples of application and goes into the differences for uni- and
-multidimensional optimization problems.
-
-![A classification of metaheuristic optimization algorithms [@Dreo:2011].](figure/Metaheuristics_classification.pdf).
-
+_RcppGO_ is a package designed for optimization problems. The code was originally written in _Cpp_. With the use of the _Rcpp_ package by [@Eddelbuettel:2011c] it is now translated into _R_. Newton's laws of gravity and motion are the basis of the algorithm as described in [@Kaveh:2010b]. _RcppGO_ is an allusion to the integration of _Rcpp_, the concept of _Gravity_ at the core of the algorithm and _Optimization_ as the purpose of the package.
 
 
 # Installation
-**RcppGO** is hosted at [https://github.com/peterkehlerjr/RcppGO](https://github.com/peterkehlerjr/RcppGO). 
-Installation is done via:
+**RcppGO** is hosted at [https://github.com/peterkehlerjr/RcppGO](https://github.com/peterkehlerjr/RcppGO). The installation via _github_ requires the package _devtools_ [@Wickham:2014]. 
+Assuming _devtools_ is not present in your library, the installation is done via:
 ```{r install, cache=TRUE, eval=FALSE,echo=TRUE}
 install.packages("devtools")
 library(devtools)
 install_github('peterkehlerjr/RcppGO')
 ```
 
+# Examples
+Let's have a look at our first example, defined by the following objective function:
+$$\frac{1}{4} x^4 - \frac{1}{2} x^2 + \frac{1}{10}x + \frac{1}{2}x^2$$
+
+![AluffiPentiny](/Users/peterkehler/Dropbox/technology/github/RcppGO/vignettes/figure/AluffiPentiny01.png)
+Let's look for the minimum of the function. 
+
+```{r AluffyPlot, echo=FALSE}
+# nothing
+```
 
 
+After installing the required packages, they have to be loaded into _R_. 
+
+```{r loading, cache=TRUE, echo=FALSE}
+library(RcppGO)
+```
+
+```{r, cache=TRUE}
+# defining a benchmark function
+# min at -0.352386, X in [-10,10]^2
+AluffiPentiny <- function(X)
+  {
+    1/4*X[,1]^4 - 1/2*X[,1]^2 + 1/10*X[,1] + 1/2*X[,2]^2
+  }
+
+# call and save the optimization process in 'demo01''
+demo01 <- RcppGO(ObjectiveFunction=AluffiPentiny,
+                 Args=2,
+                 Lower = -10,
+                 Upper = 10,
+                 User=FALSE,
+                 Scale=0.1)
+
+# show the best solutions found
+demo01$GMemory
+```
+
+```{r, eval=FALSE}
+plot(x=demo01, plot.type = "wireframe", bestsolution = TRUE)
+```
+
+
+
+# The two main functions
+
+# The RcppGO function
+## Parameters
+
+# The RcppGO.plot method
+## Parameters
 
 # Session Info
-```{r sessionInfo, include=TRUE, echo=FALSE, results='markup', cache=TRUE}
+```{r sessionInfo, include=TRUE, echo=FALSE, cache=TRUE}
 sessionInfo()
 ```
 # References

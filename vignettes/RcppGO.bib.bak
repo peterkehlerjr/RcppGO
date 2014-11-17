@@ -290,14 +290,6 @@
   timestamp = {2012.06.28}
 }
 
-@MANUAL{Wickham:2014,
-  title = {devtools: Tools to make developing R code easier},
-  author = {Hadley Wickham and Winston Chang},
-  year = {2014},
-  note = {R package version 1.6.1},
-  url = {http://CRAN.R-project.org/package=devtools}
-}
-
 @BOOK{Yang:2010,
   title = {Engineering Optimization: An Introduction with Metaheuristic Applications},
   publisher = {John Wiley \& Sons},

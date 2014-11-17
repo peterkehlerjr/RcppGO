@@ -1,2 +1,6 @@
 base
 devtools
+Rcpp
+RcppArmadillo
+lattice
+RcppGO

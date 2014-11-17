@@ -129,7 +129,7 @@ plot.RcppGO <- function(x,
     User <- x$User
     Scale <- x$Scale
     Maximize <- x$Maximize
-    if (Args != 2) stop("Args must be 2 for a plot.")
+    if (Args > 2) stop("Attention: Args > 2.")
     
     # function-wrapper
     fn <- RcppGO.Plot.Wrapper(x$ObjectiveFunction)
@@ -159,6 +159,12 @@ plot.RcppGO <- function(x,
     x02 <- seq(Lower,Upper,length.out=50)
     x03 <- outer(x01,x02,fn)
 
+    if (Args == 1)
+    {
+      plot(fn, xlim=c(Lower, Upper))
+    } else 
+    {
+    
     # dynamic plot
     if (plot.type=="dynamic")
       {
@@ -314,7 +320,7 @@ plot.RcppGO <- function(x,
              lwd=2
              )
       }
-    
+    }
     options(warn = 0)
     
   }
