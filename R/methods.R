@@ -4,7 +4,7 @@
 ##' @param fn The objective function.
 ##' @return readable code for 'outer()'.
 ##' @author Peter Kehler
-RcppGO.Plot.Wrapper <- function(fn)
+RcppGO.Plot.Wrapper <- function(fn, Args)
 {
   fnString <- deparse(fn)
   fnString <- gsub(" ","",fnString,fixed=TRUE)
@@ -20,7 +20,7 @@ RcppGO.Plot.Wrapper <- function(fn)
   if (Args == 1)
   {
     fnString <- gsub("(X)","(x)",fnString,fixed=TRUE)
-    fnString <- gsub("X[,1]","x",fnString,fixed=TRUE)
+    fnString <- gsub("X","x",fnString,fixed=TRUE)
   }
   
   return(eval(parse(text=fnString)))
@@ -141,7 +141,7 @@ plot.RcppGO <- function(x,
     if (Args > 2) stop("Attention: Args > 2.")
     
     # function-wrapper
-    fn <- RcppGO.Plot.Wrapper(x$ObjectiveFunction)
+    fn <- RcppGO.Plot.Wrapper(x$ObjectiveFunction, Args)
     
     # check binary variables
     sanity.check(input=bestsolution,default.type="logical")
