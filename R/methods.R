@@ -167,6 +167,10 @@ plot.RcppGO <- function(x,
     if (Args == 1)
     {
       plot(x = fn, xlim=c(Lower, Upper))
+      if (bestsolution == TRUE)
+      {
+        points(x =GM[1,1] , y = GM[1,2], col="red", lwd=2)
+      }
     } else 
     {
       x01 <- seq(Lower,Upper,length.out=50)
@@ -331,5 +335,3 @@ plot.RcppGO <- function(x,
     options(warn = 0)
     
   }
-
-

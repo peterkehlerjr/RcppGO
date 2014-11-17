@@ -2,13 +2,14 @@
 title: "RcppGO User Guide"
 author: "Peter Kehler"
 date: "17 nov 2014"
-output: 
+output:
+  html_document:
+    toc: yes
   pdf_document:
     fig_caption: yes
     highlight: tango
     number_sections: yes
     toc: yes
-    
 bibliography: RcppGO.bib
 ---
 
@@ -26,8 +27,36 @@ install_github('peterkehlerjr/RcppGO')
 ```
 
 # Examples
+After installing the required packages, they have to be loaded into _R_. 
+
+```{r loading, cache=TRUE, echo=FALSE}
+library(RcppGO)
+```
+Now we can start to play around. 
+
+## Example 1
 Let's have a look at our first example, defined by the following objective function:
-$$\frac{1}{4} x^4 - \frac{1}{2} x^2 + \frac{1}{10}x + \frac{1}{2}x^2$$
+$$f(x) = -x^2$$
+
+
+```{r example01, cache=TRUE}
+Fun01 <- function(X)
+  {
+  -X^2
+  }
+
+Example01 <- RcppGO(ObjectiveFunction = Fun01, Args = 1, Lower = -10, Upper = 10, n = 20, g = 20, Maximize = TRUE)
+
+str(Example01)
+
+Example01$GMemory
+
+plot(x=Example01, xlim = c(-10,10), bestsolution = TRUE)
+```
+
+## Example 2
+ to bit more complicated objective function.
+$$f(x,y)=\frac{1}{4} x^4 - \frac{1}{2} x^2 + \frac{1}{10}x + \frac{1}{2}y^2$$
 
 ![AluffiPentiny](/Users/peterkehler/Dropbox/technology/github/RcppGO/vignettes/figure/AluffiPentiny01.png)
 Let's look for the minimum of the function. 
@@ -37,11 +66,7 @@ Let's look for the minimum of the function.
 ```
 
 
-After installing the required packages, they have to be loaded into _R_. 
 
-```{r loading, cache=TRUE, echo=FALSE}
-library(RcppGO)
-```
 
 ```{r, cache=TRUE}
 # defining a benchmark function
