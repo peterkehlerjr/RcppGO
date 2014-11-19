@@ -5,8 +5,8 @@ AluffiPentiny <- function(X)
     1/4*X[,1]^4 - 1/2*X[,1]^2 + 1/10*X[,1] + 1/2*X[,2]^2
   }
 
-# call and save the optimization process in 'demo01''
-demo01 <- RcppGO(ObjectiveFunction=AluffiPentiny,
+# call and save the optimization process in 'demo01'
+demo.RcppGO <- RcppGO(ObjectiveFunction=AluffiPentiny,
                  Args=2,
                  Lower = -10,
                  Upper = 10,
@@ -14,6 +14,6 @@ demo01 <- RcppGO(ObjectiveFunction=AluffiPentiny,
                  Scale=0.1)
 
 # show the best solutions found
-demo01$GMemory
+demo.RcppGO$GMemory
 
 

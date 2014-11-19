@@ -29,7 +29,7 @@ install_github('peterkehlerjr/RcppGO')
 # Examples
 After installing the required packages, they have to be loaded into _R_. 
 
-```{r loading, echo=FALSE}
+```{r loading, echo=TRUE, results='hide'}
 library(RcppGO)
 ```
 Now we can start to play around with the package. Before going into detail, I will present two examples how to use its functionality.
@@ -79,7 +79,7 @@ Example01$GMemory
 
 
 ```{r}
-plot(x=Example01, xlim = c(-10,10), bestsolution = TRUE)
+plot(x=Example01, xlim = c(1,6), bestsolution = TRUE)
 ```
 
 
@@ -87,11 +87,11 @@ plot(x=Example01, xlim = c(-10,10), bestsolution = TRUE)
  to bit more complicated objective function.
 $$f(x,y)=\frac{1}{4} x^4 - \frac{1}{2} x^2 + \frac{1}{10}x + \frac{1}{2}y^2$$
 
-![AluffiPentiny](/Users/peterkehler/Dropbox/technology/github/RcppGO/vignettes/figure/AluffiPentiny01.png)
+
 Let's look for the minimum of the function. 
 
 
-```{r,tidy=TRUE, }
+```{r}
 # defining a benchmark function
 # min at -0.352386, X in [-10,10]^2
 AluffiPentiny <- function(X)
@@ -104,7 +104,7 @@ AluffiPentiny <- function(X)
 ```{r}
 
 # call and save the optimization process in 'demo01''
-demo01 <- RcppGO(ObjectiveFunction=AluffiPentiny,
+Example02 <- RcppGO(ObjectiveFunction=AluffiPentiny,
                  Args=2,
                  Lower = -10,
                  Upper = 10,
@@ -112,13 +112,11 @@ demo01 <- RcppGO(ObjectiveFunction=AluffiPentiny,
                  Scale=0.1)
 
 # show the best solutions found
-demo01$GMemory
+Example02$GMemory
 ```
 
 
-```{r}
-plot(x=demo01, plot.type = "wireframe", bestsolution = TRUE)
-```
+
 
 
 
