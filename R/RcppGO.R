@@ -70,8 +70,8 @@ RcppGO <- function(ObjectiveFunction,
    # check for 'Inf' and '-Inf'
     sanity.check(input=c(Args, Lower, Upper, n, g, Iterations, Scale), default.type="double")
 
-    # check boundaries # substitute 'none' with something like: do nothing
-    ifelse(Lower>Upper,stop("'Lower' > 'Upper'"),"none")
+    # check boundaries 
+    ifelse(Lower > Upper,stop("'Lower' > 'Upper'"),"proceed")
     
     
     result <- .Call("RcppGO", ObjectiveFunction, Args, Lower, Upper, n, g, Iterations, User, Scale, Maximize, Package="RcppGO")
@@ -82,6 +82,6 @@ RcppGO <- function(ObjectiveFunction,
     
  
 
-    attr(result, "class") <- "RcppGO" # experimental
-    return(result)
+    attr(result, "class") <- "RcppGO" 
+    return(result$GMemory)
   }

@@ -166,7 +166,7 @@ plot.RcppGO <- function(x,
 
     if (Args == 1)
     {
-      plot(x = fn, xlim=c(Lower, Upper))
+      plot(x = fn, ...)
       if (bestsolution == TRUE)
       {
         points(x =GM[1,1] , y = GM[1,2], col="red", lwd=2)
