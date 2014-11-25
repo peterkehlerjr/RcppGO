@@ -83,5 +83,5 @@ RcppGO <- function(ObjectiveFunction,
  
 
     attr(result, "class") <- "RcppGO" 
-    return(result$GMemory)
+    return(result)
   }
