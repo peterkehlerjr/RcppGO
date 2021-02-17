@@ -26,8 +26,8 @@ Due to its stochastic approach, the results of the algorithm are also stochastic
 Download the **RcppGO** package from this site and follow the included installation instructions.
 
 ### Supported OS
-* Linux (works out of the box)
-* OS X (requires a recent version of Xcode and an Apple version of gfortran) 
+* Linux (tested)
+* OS X (tested, requires a recent version of Xcode and an Apple version of gfortran) 
 * Windows (not tested)
 
 ### Current status
