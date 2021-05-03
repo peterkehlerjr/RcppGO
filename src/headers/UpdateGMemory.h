@@ -21,11 +21,11 @@ void UpdateGMemory(cube & GravityParticles, double & k, const int & n, const int
       
       if (Maximize == false)
 	{
-	  sortet = sort_index(Merger.col(Args),"descend"); // "0" := smallest value first
+	  sortet = sort_index(Merger.col(Args),"ascend"); // "0" := smallest value first
 	}
       else 
 	{
-	   sortet = sort_index(Merger.col(Args),"ascend"); // "1" := largest value first
+	   sortet = sort_index(Merger.col(Args),"descend"); // "1" := largest value first
 	}
       
       for (int j = 0; j <= (3*Args); j++)
