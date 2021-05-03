@@ -11,11 +11,11 @@ void SortSolutions(cube & GravityParticles, const int & Args, const int & n, dou
 
   if (Maximize == false)
     {
-      sortet = sort_index(GPTmp.submat(0,Args, n-1,Args),"ascend");
+      sortet = sort_index(GPTmp.submat(0,Args, n-1,Args),"descend");
     }
   else
     {
-      sortet = sort_index(GPTmp.submat(0,Args, n-1,Args),"descend");
+      sortet = sort_index(GPTmp.submat(0,Args, n-1,Args),"ascend");
     }
   
   for (int j = 0; j <= Args; j++)
