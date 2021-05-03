@@ -23,15 +23,12 @@ The **RcppGO** algorithm is based on _Kaveh, A. and Talatahari, (2010). A Novel 
 Due to its stochastic approach, the results of the algorithm are also stochastic. Continuous optimization problems will converge faster and most likely produce results with higher accuracy using gradient-based methods. 
 
 ### How do I try it 
-Download the **RcppGO** package from this site and follow the included installation instructions.
+In order to try the **RcppGO** follow the included INSTALLATION instructions. You can find examples and a minimal how-to in the "tests" folder of the package.
 
 ### Supported OS
-* Linux (tested)
-* OS X (tested, requires a recent version of Xcode and an Apple version of gfortran) 
+* Linux (works)
+* OS X (works, requires a recent version of Xcode and an "Apple version" of gfortran though) 
 * Windows (not tested)
 
-### Current status
-As of June 2013 the project is at version 1.0 
-
 ### Author
-Peter Kehler Jr
+Peter Kehler
