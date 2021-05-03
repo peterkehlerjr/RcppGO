@@ -8,13 +8,9 @@ As of version 0.1 the following OS are supported:
 - Linux,
 - Windows has not yet been tested.
 
-In order to install the package 'RcppGO', 
-run "install_RcppGO.sh" in your terminal via
-./install_RcppGO.sh 
+In order to install the package 'RcppGO', use 
 
-You might have to run
-chmod +x install_RcppGO.sh
-in your terminal, before you are able to execute the script.
+devtools::install_github("peterkehlerjr/RcppGO")
 
 You can get support and report bugs under:
 peter.kehler.jr@googlemail.com
