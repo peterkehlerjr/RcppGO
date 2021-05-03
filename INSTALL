@@ -8,9 +8,23 @@ As of version 0.1 the following OS are supported:
 - Linux,
 - Windows has not yet been tested.
 
-In order to install the package 'RcppGO', use 
+In order to install the package 'RcppGO', use either one of these methods. 
 
+# Method 1
 devtools::install_github("peterkehlerjr/RcppGO")
+
+# Method 2
+install.packages("remotes")
+remotes::install_github("peterkehlerjr/RcppGO")
+
+# Method 3
+library(githubinstall)
+githubinstall("peterkehlerjr/RcppGO")
+
+# Method 4 
+download the package from github, cd to the package directory and in the terminal use
+R CMD build RcppGO
+R CMD INSTALL RcppGO
 
 You can get support and report bugs under:
 peter.kehler.jr@googlemail.com
