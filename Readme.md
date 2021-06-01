@@ -26,10 +26,12 @@ Due to its stochastic approach, the results of the algorithm are also stochastic
 In order to try the **RcppGO** package follow the INSTALLATION instructions. You can find examples and a minimal how-to in the "tests" folder of the package.
 
 ### Minimal Example
+<img src="https://render.githubusercontent.com/render/math?math=f(x%2Cy)%3D%5Cfrac%7B1%7D%7B4%7Dx%5E%7B4%7D%20-%20%5Cfrac%7B1%7D%7B2%7Dx%5E%7B2%7D%20%20%2B%20%5Cfrac%7B1%7D%7B10%7Dx%20%2B%20%5Cfrac%7B1%7D%7B2%7Dy%5E%7B2%7D">
 ```R
+# load RcppGO after installing. See INSTALLATION file
 library(RcppGO)
 
-# define objective function
+# define (in this case continous) objective function
 AluffiPentiny02 <- function(X)
 {
   1/4*X[,1]^4 - 1/2*X[,1]^2 + 1/10*X[,1] + 1/2*X[,2]^2
