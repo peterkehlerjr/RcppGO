@@ -42,8 +42,11 @@ Example <- RcppGO(ObjectiveFunction=AluffiPentiny02, Args=2, Lower = -10, Upper 
 Example$GMemory
 
 # plot dynamic agent based search
-plot(x=Example, plot.type="dynamic")
+plot(x=Example, plot.type="dynamic", nextposition = TRUE)
 ```
+### Plots
+![Agents exploring the search space](https://github.com/peterkehlerjr/RcppGO/blob/master/Agent_Movement.png)
+![Aluffi01](https://github.com/peterkehlerjr/RcppGO/blob/master/vignettes/figure/AluffiPentiny01.png)
 
 ### Supported OS
 * Linux (works)
