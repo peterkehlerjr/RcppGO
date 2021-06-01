@@ -45,7 +45,7 @@ Example$GMemory
 plot(x=Example, plot.type="dynamic", nextposition = TRUE)
 ```
 ### Plots
-![Agents exploring the search space](https://github.com/peterkehlerjr/RcppGO/blob/master/Agent_Movement.png)
+![Agents exploring the search space](https://github.com/peterkehlerjr/RcppGO/blob/master/vignettes/figure/Movement.png)
 ![Aluffi01](https://github.com/peterkehlerjr/RcppGO/blob/master/vignettes/figure/AluffiPentiny01.png)
 
 ### Supported OS
