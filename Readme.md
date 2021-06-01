@@ -44,7 +44,7 @@ Example$GMemory
 # plot dynamic agent based search
 plot(x=Example, plot.type="dynamic", nextposition = TRUE)
 ```
-### Plots
+### Example Plots
 ![Agents exploring the search space](https://github.com/peterkehlerjr/RcppGO/blob/master/vignettes/figure/Movement.png)
 ![Aluffi01](https://github.com/peterkehlerjr/RcppGO/blob/master/vignettes/figure/AluffiPentiny01.png)
 
