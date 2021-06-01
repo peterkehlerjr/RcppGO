@@ -1,5 +1,5 @@
 ### What is RcppGO?
-**RcppGO** is an optimization package for **R** written in **C++** aiming at "difficult" optimization problems. **[...] Optimization algorithms are guided by objective functions. A function is difficult from a mathematical perspective in this context if it is not continuous, not differentiable, or if it has multiple maxima and minima.** _(Weise, T., (2009). Global Optimization Algorithms – Theory and Application, p.56)_ 
+**RcppGO** is an agent based optimization package for **R** written in **C++** aiming at "difficult" optimization problems. **[...] Optimization algorithms are guided by objective functions. A function is difficult from a mathematical perspective in this context if it is not continuous, not differentiable, or if it has multiple maxima and minima.** _(Weise, T., (2009). Global Optimization Algorithms – Theory and Application, p.56)_ 
 
 The **RcppGO** algorithm is based on _Kaveh, A. and Talatahari, (2010). A Novel Heuristic Optimization Method: Charged System Search. Acta Mechanica, 213(3-4):267–289._
 
