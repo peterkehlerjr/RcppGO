@@ -23,7 +23,31 @@ The **RcppGO** algorithm is based on _Kaveh, A. and Talatahari, (2010). A Novel 
 Due to its stochastic approach, the results of the algorithm are also stochastic. Continuous optimization problems will converge faster and most likely produce results with higher accuracy using gradient-based methods. 
 
 ### How do I try it 
-In order to try the **RcppGO** package follow the instructions in the INSTALL file. You can find examples and a minimal how-to in the "tests" folder of the package.
+#### Version 1: Remotes package
+```{r}
+install.packages("remotes")
+remotes::install_github("peterkehlerjr/RcppGO")
+```
+
+
+#### install version 2
+```{r}
+library(githubinstall)
+githubinstall("peterkehlerjr/RcppGO")
+```
+
+#### install version 3
+```{r}
+devtools::install_github("peterkehlerjr/RcppGO")
+```
+
+#### install version 4 
+ download the package 
+ in the terminal use
+```{bash}
+R CMD build RcppGO
+R CMD INSTALL RcppGO
+```
 
 ### Minimal Example
 <img src="https://render.githubusercontent.com/render/math?math=f(x%2Cy)%3D%5Cfrac%7B1%7D%7B4%7Dx%5E%7B4%7D%20-%20%5Cfrac%7B1%7D%7B2%7Dx%5E%7B2%7D%20%20%2B%20%5Cfrac%7B1%7D%7B10%7Dx%20%2B%20%5Cfrac%7B1%7D%7B2%7Dy%5E%7B2%7D">
