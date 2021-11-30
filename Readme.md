@@ -25,19 +25,19 @@ Due to its stochastic approach, the results of the algorithm are also stochastic
 ### How do I try it 
 There are several options to install **RcppGO**:
 ```{r}
-# version 1
+# option 1
 install.packages("remotes")
 remotes::install_github("peterkehlerjr/RcppGO")
 
-# version 2
+# option 2
 library(githubinstall)
 githubinstall("peterkehlerjr/RcppGO")
 
-# version 3
+# option 3
 # using the devtools package
 devtools::install_github("peterkehlerjr/RcppGO")
 
-# version 4 
+# option 4 
 # download the package 
 # in the terminal use
 R CMD build RcppGO
