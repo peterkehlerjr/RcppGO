@@ -71,8 +71,8 @@ plot(x=Example, plot.type="dynamic", nextposition = TRUE)
 ![Aluffi01](https://github.com/peterkehlerjr/RcppGO/blob/master/vignettes/figure/AluffiPentiny01.png)
 
 ### Supported OS
-* Linux (works)
-* OS X (works, requires a recent version of Xcode and an "Apple version" of gfortran though) 
+* Linux (tested)
+* OS X (tested, requires a recent version of Xcode and an "Apple version" of gfortran though) 
 * Windows (not tested)
 
 ### Author
