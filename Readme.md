@@ -20,7 +20,7 @@ The **RcppGO** algorithm is based on _Kaveh, A. and Talatahari, (2010). A Novel 
 * The algorithm doesn't require a good starting point. 
 
 ### Disadvantages
-Due to its stochastic approach, the results of the algorithm are also stochastic. Continuous optimization problems will converge faster and most likely produce results with higher accuracy using gradient-based methods. 
+Continuous optimization problems will converge faster and most likely produce results with higher accuracy using gradient-based methods. 
 
 ### How do I try it 
 There are several options to install **RcppGO**:
